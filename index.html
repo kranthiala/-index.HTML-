@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        input:valid {
+            border: 2px solid green;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Validation using JavaScript and CSS3</h1>
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()">
+            <input type="text" name="fname" placeholder="Enter your name">
+            <input type="number" name="age" placeholder="Enter your age">
+            <input type="submit" value="Submit">
+        </form>
+        <div id="results"></div>
+    </div>
+    <script>
+        // Arrow function for form validation
+        const validateForm = () => {
+            let x = document.forms["myForm"]["fname"].value;
+            let y = document.forms["myForm"]["age"].value;
+
+            if (x == "" || isNaN(y) || y < 1) {
+                alert("Please fill out the form correctly.");
+                return false;
+            }
+
+            return true;
+        };
+    </script>
+</body>
+</html>
